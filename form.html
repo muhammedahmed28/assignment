@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            padding: 30px 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e1e4e8;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .required-note {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .section-box {
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
+            padding: 25px 20px 20px 20px;
+            margin-bottom: 25px;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            position: absolute;
+            top: -14px;
+            left: 15px;
+            background-color: #46728c;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sub-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .sub-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .row:last-child {
+            margin-bottom: 0;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 6px;
+        }
+
+        .required {
+            color: #d9534f;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 13px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            outline: none;
+            background-color: #ffffff;
+            color: #333;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #46728c;
+        }
+
+        textarea {
+            width: 100%;
+            height: 70px;
+            padding: 8px 12px;
+            font-size: 13px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            outline: none;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 12px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input {
+            cursor: pointer;
+        }
+
+        .file-upload-box {
+            background-color: #f8f9fa;
+            border: 1px solid #cccccc;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .file-note {
+            font-size: 10px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn-clear {
+            background-color: #e2e6ea;
+            color: #333;
+            border: 1px solid #ced4da;
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background-color: #46728c;
+            color: #ffffff;
+            border: none;
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-clear:hover { background-color: #d3d9df; }
+        .btn-submit:hover { background-color: #385d73; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1 class="form-title">Application Form</h1>
+        <p class="required-note">Fields marked with <span class="required">*</span> are required.</p>
+
+        <form>
+            <div class="section-box">
+                <div class="section-header">A. General Information</div>
+                
+                <div class="row">
+                    <div class="col">
+                        <label>Proposed Insured's Full Name <span class="required">*</span></label>
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="col">
+                        <label>Birth Date <span class="required">*</span></label>
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Gender:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender"> Male</label>
+                            <label><input type="radio" name="gender"> Female</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Address <span class="required">*</span></label>
+                        <textarea></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="text" placeholder="+92 300 1234567">
+                    </div>
+                    <div class="col">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" placeholder="name@example.com">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>ID / CNIC Number <span class="required">*</span></label>
+                        <input type="text" placeholder="42101-1234567-1">
+                    </div>
+                    <div class="col">
+                        <label>Social Security / Reference Number</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Marital Status <span class="required">*</span></label>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Occupation <span class="required">*</span></label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Are you retired? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="retired"> Yes</label>
+                            <label><input type="radio" name="retired"> No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-header">B. Type of Health Coverage</div>
+
+                <div class="sub-card">
+                    <label>Employee Coverage</label>
+                    <div class="radio-group" style="margin-bottom: 12px;">
+                        <label><input type="radio" name="emp_coverage"> Yes</label>
+                        <label><input type="radio" name="emp_coverage"> No</label>
+                    </div>
+                    <label>Employee Plan Choice</label>
+                    <select>
+                        <option value="">Select plan</option>
+                        <option value="basic">Basic Plan</option>
+                        <option value="premium">Premium Plan</option>
+                    </select>
+                </div>
+
+                <div class="sub-card">
+                    <label>Spouse Coverage</label>
+                    <div class="radio-group" style="margin-bottom: 12px;">
+                        <label><input type="radio" name="spouse_coverage"> Yes</label>
+                        <label><input type="radio" name="spouse_coverage"> No</label>
+                    </div>
+                    <label>Spouse Plan Choice</label>
+                    <select>
+                        <option value="">Select plan</option>
+                        <option value="basic">Basic Plan</option>
+                        <option value="premium">Premium Plan</option>
+                    </select>
+                </div>
+
+                <div class="sub-card">
+                    <label>Children Coverage</label>
+                    <div class="radio-group" style="margin-bottom: 12px;">
+                        <label><input type="radio" name="child_coverage"> Yes</label>
+                        <label><input type="radio" name="child_coverage"> No</label>
+                    </div>
+                    <label>Children Plan Choice</label>
+                    <select>
+                        <option value="">Select plan</option>
+                        <option value="basic">Basic Plan</option>
+                        <option value="premium">Premium Plan</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-header">C. Spouse / Children Information</div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Dependent Name</label>
+                        <input type="text">
+                    </div>
+                    <div class="col">
+                        <label>ID / SSN</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Relationship</label>
+                        <select>
+                            <option value="">Select relationship</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="child">Child</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Birth Date</label>
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Age</label>
+                        <input type="text">
+                    </div>
+                    <div class="col">
+                        <label>Gender</label>
+                        <select>
+                            <option value="">Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-header">D. Policy Information</div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Units</label>
+                        <input type="text">
+                    </div>
+                    <div class="col">
+                        <label>Annual Premium</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Payment Mode <span class="required">*</span></label>
+                        <select>
+                            <option value="">Select payment mode</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="annual">Annual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Cash With Application</label>
+                        <input type="text">
+                    </div>
+                    <div class="col">
+                        <label>Planned Monthly Premium</label>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-header">E. Required Document</div>
+                
+                <p style="font-size: 11px; color: #555; margin-bottom: 12px;">Please attach your supporting document before submitting the application.</p>
+                
+                <label>Attach Document <span class="required">*</span></label>
+                <div class="file-upload-box">
+                    <input type="file">
+                </div>
+                <p class="file-note">Accepted formats: PDF, JPG, JPEG and PNG</p>
+            </div>
+
+            <div class="section-box">
+                <div class="section-header">F. Declaration</div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm">
+                    <label for="confirm" style="font-weight: normal; margin-bottom: 0;">I confirm that the information provided in this application is complete and accurate.</label>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Applicant Full Name / Signature <span class="required">*</span></label>
+                        <input type="text">
+                    </div>
+                    <div class="col">
+                        <label>Application Date <span class="required">*</span></label>
+                        <input type="date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="reset" class="btn-clear">Clear Form</button>
+                <button type="submit" class="btn-submit">Submit Application</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
